@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" contnt="width=device-width, initial-scale=1" charset="utf-8">
+<link rel="stylesheet" href="https://apps.bdimg.com/libs/jquerymobile/1.4.5/jquery.mobile-1.4.5.min.css">
+<script src="https://apps.bdimg.com/libs/jquery/1.10.2/jquery.min.js"></script>
+<script src="https://apps.bdimg.com/libs/jquerymobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+<script type="text/javascript" src="funtion.js"></script>
+<script src="Tabullet.js"></script>
+<link rel="stylesheet" type="text/css" href="http://www.jq22.com/jquery/bootstrap-3.3.4.css">
+<link rel="stylesheet" href="wcss.css" type="text/css" />
+<script>
+$(document).ready(function(){
+  $.get("login.html",function(){
+			
+		});
+  });
+
+</script>
+<style>
+    body {
+        background-color: #fafafa;
+    }
+
+    .container {
+        margin: 200px auto;
+    }
+    </style>
+	
+    <script type="text/javascript">
+    $(function() {
+        var source = [{
+            id: 1,
+            name: "吕德峰",
+            level: "健身"
+        }, ];
+
+        function resetTabullet() {
+            $("#table").tabullet({
+                data: source,
+                action: function(mode, data) {
+                    
+                    if (mode === 'save') {
+                        source.push(data);
+                    }
+                    if (mode === 'edit') {
+                        for (var i = 0; i < source.length; i++) {
+                            if (source[i].id == data.id) {
+                                source[i] = data;
+                            }
+                        }
+                    }
+                    if (mode == 'delete') {
+                        for (var i = 0; i < source.length; i++) {
+                            if (source[i].id == data) {
+                                source.splice(i, 1);
+                                break;
+                            }
+                        }
+                    }
+                    resetTabullet();
+                }
+            });
+        }
+
+        resetTabullet();
+    });
+    </script>
+<script>
+$(document).ready(function(){
+  $("li").click(function(){
+    $(this).hide();
+    alert('购买成功！')
+  });
+});
+</script>
+</head>
+<body>
+	<div data-role="page" id="pagethree">
+	
+		<div data-role="header" data-theme="b">
+			
+    	<h1>商城</h1>
+    </div>
+   <div data-role="main" class="ui-content">
+		  <h2>点击即可购买</h2><br /><br />
+				<ul data-role="listview">
+			    <li data-role="list-divider">商品</li>
+			    <li data-icon="false"><a href="#">&nbsp;&nbsp;&nbsp;签字笔<span class="ui-li-count">2积分</span></a></li>
+			    <li data-icon="false"><a href="#">&nbsp;&nbsp;&nbsp;洗衣液<span class="ui-li-count">5积分</span></a></li>
+			    <li data-icon="false"><a href="#">&nbsp;&nbsp;&nbsp;A4本<span class="ui-li-count">1积分</span></a></li>
+			    <li data-icon="false"><a href="#">&nbsp;&nbsp;&nbsp;衣架<span class="ui-li-count">3积分</span></a></li>
+			    <li data-icon="false"><a href="#">&nbsp;&nbsp;&nbsp;杯子<span class="ui-li-count">10积分</span></a></li>
+			    <li data-icon="false"><a href="#">&nbsp;&nbsp;&nbsp;牙刷<span class="ui-li-count">5积分</span></a></li>
+			    <li data-icon="false"><a href="#">&nbsp;&nbsp;&nbsp;维他奶<span class="ui-li-count">5积分</span></a></li>
+				</ul>
+				<br/><br/><br/><br/>
+      <div data-role="fieldcontain">
+		    <ul data-role="listview">
+            <li>
+                
+          </li>
+          </ul>
+        </div>
+  <div data-role="footer" style="text-align:center;" data-theme="b">
+		    	<div data-role="navbar" data-iconpos="top">
+					<div data-role="navbar" data-iconpos="top">
+					      <ul>
+					        <li><a href="sup.html" data-icon="comment " data-transition="slide" data-direction="reverse">监督</a></li>
+					        <li><a href="mall.html" data-icon="eye " data-transition="slide" data-direction="reverse">商城</a></li>
+					        <li><a href="center.html" data-icon="user ui-nodisc-icon ui-alt-icon" data-transition="slide">个人信息</a></li>
+					      </ul>
+			    	</div>
+				</div>
+		 </div>
+	</div> 
+</div> 

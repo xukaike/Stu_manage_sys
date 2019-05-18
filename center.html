@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" contnt="width=device-width, initial-scale=1" charset="utf-8">
+<link rel="stylesheet" href="https://apps.bdimg.com/libs/jquerymobile/1.4.5/jquery.mobile-1.4.5.min.css">
+<script src="https://apps.bdimg.com/libs/jquery/1.10.2/jquery.min.js"></script>
+<script src="https://apps.bdimg.com/libs/jquerymobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+<script type="text/javascript" src="funtion.js"></script>
+<script src="Tabullet.js"></script>
+<link rel="stylesheet" type="text/css" href="http://www.jq22.com/jquery/bootstrap-3.3.4.css">
+<link rel="stylesheet" href="1.css" type="text/css" />
+<script>
+$(document).ready(function(){
+  $.get("login.html",function(){
+			
+		});
+  });
+
+</script>
+
+    <script type="text/javascript">
+    $(function() {
+        var source = [{
+            id: 1,
+            name: "吕德峰",
+            level: "健身"
+        }, ];
+
+        function resetTabullet() {
+            $("#table").tabullet({
+                data: source,
+                action: function(mode, data) {
+                    
+                    if (mode === 'save') {
+                        source.push(data);
+                    }
+                    if (mode === 'edit') {
+                        for (var i = 0; i < source.length; i++) {
+                            if (source[i].id == data.id) {
+                                source[i] = data;
+                            }
+                        }
+                    }
+                    if (mode == 'delete') {
+                        for (var i = 0; i < source.length; i++) {
+                            if (source[i].id == data) {
+                                source.splice(i, 1);
+                                break;
+                            }
+                        }
+                    }
+                    resetTabullet();
+                }
+            });
+        }
+
+        resetTabullet();
+    });
+    </script>
+</head>
+<body>
+<div data-role="page" id="center" >
+  		<div data-role="header" data-theme="b">
+				
+    		<h1>个人信息</h1>
+  		</div>
+  		<div data-role="main" class="ui-content">
+		    <ul data-role="listview" ><br />
+		      <li><h1 >徐楷</h1><p >账号：16052006</p></li>
+		    </ul><br /><br /><br /><br />
+		    <ul data-role="listview" >
+		    	<li><img src="image/安全.png"  class="ui-li-icon">积分<span class="ui-li-count">50</span></li>
+		    	<li><img src="image/功能定义.png"  class="ui-li-icon">完成天数<span class="ui-li-count">4</span></li>
+		      <li><img src="image/形状-图片.png"  class="ui-li-icon">最后完成时间<span class="ui-li-count">1天前</span></li>
+		      <br /><br />
+		      <li data-role="list-divider"><img src="image/卡包.png" class="ui-li-icon">&nbsp;&nbsp;&nbsp;&nbsp;交易记录</li>
+		       <li><script>document.write(shop[2]);</script></li>
+		       
+		      <br /><br /><br />
+		    </ul>
+		    <ul data-role = "listview">
+              <li data-icon="false"><a href="login.html" data-role="button" data-icon="alert">&nbsp;&nbsp;&nbsp;&nbsp;退出账号</a></li><br /><br />
+		    </ul>
+		  </div>
+  		<div data-role="footer" style="text-align:center;" data-theme="b">
+					<div data-role="navbar" data-iconpos="top">
+					      <ul>
+					        <li><a href="sup.html" data-icon="comment " data-transition="slide" data-direction="reverse">监督</a></li>
+					        <li><a href="mall.html" data-icon="eye " data-transition="slide" data-direction="reverse">商城</a></li>
+					        <li><a href="center.html" data-icon="user ui-nodisc-icon ui-alt-icon" data-transition="slide">个人信息</a></li>
+					      </ul>
+			    	</div>
+		</div>
+		</div>
+		</body>
+		</html>

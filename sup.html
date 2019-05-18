@@ -1,0 +1,100 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1" charset="utf-8">
+<link rel="stylesheet" href="https://apps.bdimg.com/libs/jquerymobile/1.4.5/jquery.mobile-1.4.5.min.css">
+<script src="https://apps.bdimg.com/libs/jquery/1.10.2/jquery.min.js"></script>
+<link rel="stylesheet" type="text/css" href="http://www.jq22.com/jquery/bootstrap-3.3.4.css">
+<script type="text/javascript" src="funtion.js"></script>
+<script src="https://apps.bdimg.com/libs/jquerymobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+<script src="Tabullet.js"></script>
+<link rel="stylesheet" href="wcss.css" type="text/css" />
+<style>
+    body {
+        background-color: #fafafa;
+    }
+
+    .container {
+        margin: 200px auto;
+    }
+    </style>
+	
+    <script type="text/javascript">
+    $(function() {
+        var source = [{
+            id: 1,
+            name: "吕德峰",
+            level: "健身"
+        }, ];
+
+        function resetTabullet() {
+            $("#table").tabullet({
+                data: source,
+                action: function(mode, data) {
+                    
+                    if (mode === 'save') {
+                        source.push(data);
+                    }
+                    if (mode === 'edit') {
+                        for (var i = 0; i < source.length; i++) {
+                            if (source[i].id == data.id) {
+                                source[i] = data;
+                            }
+                        }
+                    }
+                    if (mode == 'delete') {
+                        for (var i = 0; i < source.length; i++) {
+                            if (source[i].id == data) {
+                                source.splice(i, 1);
+                                break;
+                            }
+                        }
+                    }
+                    resetTabullet();
+                }
+            });
+        }
+
+        resetTabullet();
+    });
+    </script>
+</head>
+<body>
+	<div data-role="page">
+		<div data-role="header" data-theme="b">
+			<h1>监督</h1>
+		</div><br />
+			<div data-role="main" class="ui-content">
+				<div class="container">
+					<div class="row">
+						<div class="col-sm-12">
+							<table class="table table-hover" id="table">
+								<thead>
+									<tr data-tabullet-map="id">
+										<th width="50" data-tabullet-map="_index" data-tabullet-readonly="true">No</th>
+											<th data-tabullet-map="name">姓名</th>
+											<th data-tabullet-map="level">事件</th>
+											<th width="50" data-tabullet-type="edit"></th>
+											<th width="50" data-tabullet-type="delete"></th>
+										</tr>
+								</thead>
+							</table>
+						</div>
+					</div>
+				</div>
+			</div>
+		<div data-role="footer" style="text-align:center;" data-theme="b">
+		    <div data-role="navbar" data-iconpos="top">
+				<div data-role="navbar" data-iconpos="top">
+					<ul>
+					    <li><a href="sup.html" data-icon="comment " data-transition="slide" data-direction="reverse">监督</a></li>
+					    <li><a href="mall.html" data-icon="eye " data-transition="slide" data-direction="reverse">商城</a></li>
+					    <li><a href="center.html" data-icon="user ui-nodisc-icon ui-alt-icon" data-transition="slide">个人信息</a></li>
+					</ul>
+			    </div>
+			</div>
+		 </div>
+	</div> 
+</body>
+</html>
